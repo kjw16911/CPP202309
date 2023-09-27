@@ -13,9 +13,9 @@ int main()
 
 	for (int i = 0; i < maxPeople; i++) {
 		cout << "사람" << i + 1 << "의 이름 : ";
-		cin >> names[i];
+		cin >> names[i]; //names[maxPeople]에 해당
 		cout << "사람" << i + 1 << "의 나이 : ";
-		cin >> ages[i];
+		cin >> ages[i]; //age[maxPeople]에 해당
 	}
 
 	int ageThreshold;
@@ -24,7 +24,7 @@ int main()
 
 	cout << ageThreshold << "세 이상인 고객들 : \n";
 	int detectedPeople = 0;
-	for (int i = 0; i < maxPeople; i++) {
+	for (int i = 0; i < maxPeople; i++) { // for문과 if문을 활용하여 입력된 사람들의 정보를 확인함.
 		if (ages[i] >= ageThreshold) {
 			cout << names[i] << " (" << ages[i] << "세)\n";
 			detectedPeople ++;
@@ -35,4 +35,5 @@ int main()
 		cout << ageThreshold << "이상의 나이를 가진 고객이 없습니다.";
 	}
 	return 0;
+	//시험에 내기 좋은 유형의 문제
 }
