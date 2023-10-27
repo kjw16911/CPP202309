@@ -1,0 +1,9 @@
+﻿  todo.c
+C:\Users\AI\Desktop\CPP202309\20231023\todo.c(91,12): warning C4477: 'scanf_s' : 서식 문자열 '%d'에 'int *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'int'입니다.
+C:\Users\AI\Desktop\CPP202309\20231023\todo.c(94,12): warning C4477: 'scanf_s' : 서식 문자열 '%s'에 'char *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'int'입니다.
+C:\Users\AI\Desktop\CPP202309\20231023\todo.c(94,12): message : 이 인수는 변환 지정자에서 사용됩니다.
+C:\Users\AI\Desktop\CPP202309\20231023\todo.c(94,12): warning C4473: 'scanf_s': 서식 문자열에 대한 인수가 충분하게 전달되지 않았습니다.
+C:\Users\AI\Desktop\CPP202309\20231023\todo.c(94,12): message : 자리 표시자 및 해당 매개 변수에는 variadic 인수가 2개 필요하지만 1개가 제공되었습니다.
+C:\Users\AI\Desktop\CPP202309\20231023\todo.c(94,12): message : 누락된 variadic 인수 2이(가) 서식 문자열 '%s'에 필요합니다.
+C:\Users\AI\Desktop\CPP202309\20231023\todo.c(94,12): message : 이 인수는 버퍼 크기로 사용됩니다.
+C:\Users\AI\Desktop\CPP202309\20231023\todo.c(94): error C4700: 초기화되지 않은 'ch' 지역 변수를 사용했습니다.

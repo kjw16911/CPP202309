@@ -42,7 +42,7 @@ int main() {
 
 		// 사용자의 입력을 저장할 변수
 		string user_input = "";
-		
+
 		cout << "현재 HP : " << hp;
 		cout << " 명령어를 입력하세요 (상, 하, 좌, 우, 지도, 종료) : ";
 		cin >> user_input;
@@ -50,7 +50,7 @@ int main() {
 		//사용자에게 입력받은 값에 따른 행동 정리(if문 활용)
 		if (user_input == "상") {
 			// 위로 한 칸 올라가기
-			user_y -= 1; 
+			user_y -= 1;
 			//2차원 배열의 시작이 좌측 상단에서 시작하므로 -1를 해야 한칸 위로 올라감.
 			bool inMap = checkXY(user_x, mapX, user_y, mapY);
 			if (inMap == false) {
@@ -134,20 +134,7 @@ int main() {
 			break;
 		}
 
-		bool item = checkState(map, user_x, user_y); //else if로 바꾸고 chechState 함수도 변경
-		if (item == true) {
-			cout << "아이템이 있습니다." << endl;
-		}
-		bool potion = checkState(map, user_x, user_y);
-		if (potion == true) {
-			hp += 2;
-			cout << "포션이 있습니다. HP가 2 회복됩니다." << endl;
-		}
-		bool enemy = checkState(map, user_x, user_y);
-		if (enemy == true) {
-			hp -= 2;
-			cout << "적이 있습니다. HP가 2 줄어듭니다." << endl;
-		}
+		checkState(map, user_x, user_y);
 
 	}
 	return 0;
@@ -206,21 +193,27 @@ bool checkGoal(int map[][mapX], int user_x, int user_y) {
 }
 
 // 아이템/포션/적을 만났을 때 해당 효과와 메세제 출력하는 함수
-bool checkState(int map[][mapX], int user_x, int user_y){
+bool checkState(int map[][mapX], int user_x, int user_y) {
+	bool isItem = (map[user_y][user_x] == 1);
+	bool isPotion = (map[user_y][user_x] == 3);
+	bool isEnemy = (map[user_y][user_x] == 2);
 
-	// 아이템을 만날 경우
-	if (map[user_y][user_x] == 1) {
-		return true;
+	// 아이템, 포션, 적 여부를 출력
+	if (isItem == true) {
+		cout << "아이템이 있습니다." << endl;
 	}
-	// 포션을 만날 경우
-	else if (map[user_y][user_x] == 3) {
-		return true;
+	else if (isPotion == true) {
+		hp += 2;
+		cout << "포션이 있습니다. HP가 2 회복됩니다." << endl;
 	}
-	// 
-	else if (map[user_y][user_x] == 2) {
-		return true;
+	else if (isEnemy == true) {
+		hp -= 2;
+		cout << "적이 있습니다. HP가 2 줄어듭니다." << endl;
 	}
 	else {
-		return false;
+		false;
 	}
+
+	// 아이템, 포션, 적 중 하나라도 있는지 여부를 반환
+	return (isItem || isPotion || isEnemy);
 }
