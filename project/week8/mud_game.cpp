@@ -211,7 +211,7 @@ bool checkState(int map[][mapX], int user_x, int user_y) {
 		cout << "적이 있습니다. HP가 2 줄어듭니다." << endl;
 	}
 	else {
-		false;
+		return false;
 	}
 
 	// 아이템, 포션, 적 중 하나라도 있는지 여부를 반환

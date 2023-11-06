@@ -36,7 +36,6 @@ int main()
 	for (int i = 0; i < numCell; i++) {
 		j = 0; //j가 for문 안으로 들어와야 계속적으로 커짐.
 		for (auto value : numList[i]) {
-			int value = numList[i][j];
 			if (value > max) {
 				max = value;
 				maxI = i;
