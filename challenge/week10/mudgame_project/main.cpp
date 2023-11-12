@@ -7,9 +7,6 @@ using namespace std;
 const int mapX = 5;
 const int mapY = 5;
 
-//유저 체력 설정
-int hp = 20;
-
 // 사용자 정의 함수 (함수 원형)
 // 이동하는 좌표가 맵을 벗어나는지를 확인하는 함수
 bool checkXY(int user_x, int mapX, int user_y, int mapY);
@@ -25,7 +22,7 @@ bool checkState(int map[][mapX], int user_x, int user_y);
 
 // 메인  함수
 int main() {
-    user my_user;
+    User my_user;
     my_user.hp = 20;
     // 0은 빈 공간, 1은 아이템, 2는 적, 3은 포션, 4는 목적지
     int map[mapY][mapX] = { {0, 1, 2, 0, 4},
@@ -46,7 +43,7 @@ int main() {
         // 사용자의 입력을 저장할 변수
         string user_input = "";
 
-        cout << "현재 HP : " << hp;
+        cout << "현재 HP : " << my_user.GetHP();
         cout << " 명령어를 입력하세요 (상, 하, 좌, 우, 지도, 종료) : ";
         cin >> user_input;
 
@@ -61,7 +58,6 @@ int main() {
                 user_y += 1; //이미 위로 올라간 상태이므로 맵을 벗어났을 경우 다시 원상복구해야 함.
             }
             else {
-                hp -= 1;
                 cout << "위로 한 칸 올라갑니다." << endl;
                 displayMap(map, user_x, user_y);
             }
@@ -75,7 +71,6 @@ int main() {
                 user_y -= 1;
             }
             else {
-                hp -= 1;
                 cout << "아래로 한 칸 내려갑니다." << endl;
                 displayMap(map, user_x, user_y);
             }
@@ -90,7 +85,6 @@ int main() {
                 user_x += 1;
             }
             else {
-                hp -= 1;
                 cout << "왼쪽으로 이동합니다." << endl;
                 displayMap(map, user_x, user_y);
             }
@@ -104,7 +98,6 @@ int main() {
                 user_x -= 1;
             }
             else {
-                hp -= 1;
                 cout << "오른쪽으로 이동합니다." << endl;
                 displayMap(map, user_x, user_y);
             }
@@ -123,7 +116,7 @@ int main() {
             continue;
         }
 
-        if (hp == 0) {
+        if (my_user.GetHP() == 0) {
             cout << "HP가 0이 되었습니다. " << "실패하였습니다." << endl;
             cout << "게임을 종료합니다.";
             break;
@@ -140,6 +133,7 @@ int main() {
         checkState(map, user_x, user_y);
 
     }
+    my_user.DecreaseHP(1);
     return 0;
 }
 
@@ -197,6 +191,7 @@ bool checkGoal(int map[][mapX], int user_x, int user_y) {
 
 // 아이템/포션/적을 만났을 때 해당 효과와 메세제 출력하는 함수
 bool checkState(int map[][mapX], int user_x, int user_y) {
+    User my_user;
     bool isItem = (map[user_y][user_x] == 1);
     bool isPotion = (map[user_y][user_x] == 3);
     bool isEnemy = (map[user_y][user_x] == 2);
@@ -206,11 +201,11 @@ bool checkState(int map[][mapX], int user_x, int user_y) {
         cout << "아이템이 있습니다." << endl;
     }
     else if (isPotion == true) {
-        hp += 2;
+        my_user.DecreaseHP(-2);
         cout << "포션이 있습니다. HP가 2 회복됩니다." << endl;
     }
     else if (isEnemy == true) {
-        hp -= 2;
+        my_user.DecreaseHP(2);
         cout << "적이 있습니다. HP가 2 줄어듭니다." << endl;
     }
     else {

@@ -9,12 +9,15 @@
 #include <iostream>
 using namespace std;
 
-void user::DecreaseHP(int dec_hp){
-    //TODO1 움직이면 HP 1 감소
-    //TODO2 적을 만나면 HP 2 감소
+// HP를 감소시키는 멤버 함수
+void User::DecreaseHP(int decHP) {
+    hp -= decHP;
+    if (hp < 0) {
+        hp = 0;
+    }
 }
-int user::GetHP(){
-    //TODO1 명령어 하나가 끝나면 현재 HP 출력
-    cout << "현재 HP : " << hp;
+
+// 현재 HP를 반환하는 멤버 함수
+int User::GetHP() const {
     return hp;
 }

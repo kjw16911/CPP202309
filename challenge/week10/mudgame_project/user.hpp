@@ -12,11 +12,15 @@
 using namespace std;
 #endif /* user_hpp */
 
-class user{
+class User {
 public:
     int hp;
-    
 public:
-    void DecreaseHP(int dec_hp);
-    int GetHP();
+    // HP를 감소시키는 멤버 함수
+    void DecreaseHP(int decHP);
+
+    // 현재 HP를 반환하는 멤버 함수
+    int GetHP() const;
+
+
 };
