@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mud_game_extend", "mud_game_extend.vcxproj", "{5B01753B-A885-42A7-9556-D3FCC76EA22A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B01753B-A885-42A7-9556-D3FCC76EA22A}.Debug|x64.ActiveCfg = Debug|x64
+		{5B01753B-A885-42A7-9556-D3FCC76EA22A}.Debug|x64.Build.0 = Debug|x64
+		{5B01753B-A885-42A7-9556-D3FCC76EA22A}.Debug|x86.ActiveCfg = Debug|Win32
+		{5B01753B-A885-42A7-9556-D3FCC76EA22A}.Debug|x86.Build.0 = Debug|Win32
+		{5B01753B-A885-42A7-9556-D3FCC76EA22A}.Release|x64.ActiveCfg = Release|x64
+		{5B01753B-A885-42A7-9556-D3FCC76EA22A}.Release|x64.Build.0 = Release|x64
+		{5B01753B-A885-42A7-9556-D3FCC76EA22A}.Release|x86.ActiveCfg = Release|Win32
+		{5B01753B-A885-42A7-9556-D3FCC76EA22A}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56FD362B-ADAF-44F1-B45C-79914C5E4B80}
+	EndGlobalSection
+EndGlobal
